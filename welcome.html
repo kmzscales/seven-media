@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome — Seven Media</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #080807;
+      --bg2:         #0e0d0b;
+      --bg3:         #151411;
+      --text:        #f2ede4;
+      --soft:        #a09880;
+      --muted:       #5a5448;
+      --gold:        #c9a84c;
+      --gold-light:  #e2c47a;
+      --gold-pale:   #f0deb0;
+      --border:      rgba(201,168,76,0.12);
+      --border-soft: rgba(255,255,255,0.06);
+      --radius:      14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* noise */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* glow orbs */
+    .glow-layer { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .glow-orb { position: absolute; border-radius: 50%; filter: blur(80px); }
+    .glow-orb-1 {
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(201,168,76,0.13) 0%, transparent 65%);
+      top: -250px; left: 50%; transform: translateX(-50%);
+      animation: float1 9s ease-in-out infinite;
+    }
+    .glow-orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%);
+      bottom: 10vh; right: -80px;
+      animation: float2 11s ease-in-out infinite;
+    }
+    @keyframes float1 {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(-24px); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-16px); }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: relative;
+      z-index: 2;
+      padding: 22px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: rgba(8,8,7,0.85);
+      backdrop-filter: blur(20px);
+    }
+    .logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .logo span { color: var(--gold); }
+    .nav-contact { font-size: 12px; color: var(--muted); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 100px 24px 80px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border);
+      background: rgba(201,168,76,0.06);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 36px;
+    }
+
+    .badge-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--gold);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--gold); }
+      50%       { opacity: 0.4; box-shadow: 0 0 14px var(--gold); }
+    }
+
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(38px, 6vw, 68px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-pale), var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--soft);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── CONTAINER ── */
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    section { position: relative; z-index: 2; padding: 80px 0; border-bottom: 1px solid var(--border-soft); }
+    section:last-of-type { border-bottom: none; }
+
+    /* ── SECTION LABEL ── */
+    .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .label::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--gold);
+      box-shadow: 0 0 6px var(--gold);
+    }
+
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      margin-bottom: 32px;
+    }
+
+    h2 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-pale), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── BUILD CARDS ── */
+    .build-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 640px) { .build-grid { grid-template-columns: 1fr; } }
+
+    .build-card {
+      background: linear-gradient(145deg, var(--bg2), var(--bg3));
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .build-card:hover {
+      border-color: var(--border);
+      box-shadow: 0 0 40px rgba(201,168,76,0.06);
+    }
+
+    .build-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .build-card:hover::before { opacity: 1; }
+
+    .build-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .build-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .build-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .build-card li {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 5px 0 5px 14px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .build-card li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 12px;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { margin-top: 8px; }
+
+    .timeline-row {
+      display: flex;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border-soft);
+      align-items: flex-start;
+    }
+
+    .timeline-row:last-child { border-bottom: none; }
+
+    .timeline-week {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+      padding-top: 2px;
+      min-width: 64px;
+    }
+
+    .timeline-content { font-size: 15px; color: var(--soft); line-height: 1.65; }
+    .timeline-content strong { color: var(--text); font-weight: 600; }
+
+    /* ── ACTION CARD ── */
+    .action-card {
+      background: linear-gradient(145deg, var(--bg2), var(--bg3));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px 44px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(201,168,76,0.06), inset 0 0 60px rgba(201,168,76,0.03);
+    }
+
+    .action-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    }
+
+    .action-card h2 { margin-bottom: 16px; }
+    .action-card p { color: var(--soft); font-size: 16px; max-width: 420px; margin: 0 auto 32px; line-height: 1.8; }
+
+    .btn-gold {
+      display: inline-block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 18px 52px;
+      border-radius: 100px;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: var(--bg);
+      box-shadow: 0 0 30px rgba(201,168,76,0.35), 0 0 60px rgba(201,168,76,0.1), inset 0 1px 0 rgba(255,255,255,0.2);
+      transition: transform 0.25s, box-shadow 0.25s;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 0 50px rgba(201,168,76,0.5), 0 0 100px rgba(201,168,76,0.2), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+
+    .action-note {
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── HOW WE WORK ── */
+    .prose p { color: var(--soft); margin-bottom: 18px; line-height: 1.8; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose strong { color: var(--text); font-weight: 600; }
+
+    /* ── CONTACT ── */
+    .contact-card {
+      background: linear-gradient(145deg, var(--bg2), var(--bg3));
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .contact-role {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .contact-email {
+      font-size: 15px;
+      color: var(--soft);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .contact-email:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ── CLOSING ── */
+    .closing {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 72px 24px;
+    }
+
+    .closing p {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(18px, 3vw, 26px);
+      font-weight: 700;
+      color: var(--soft);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+    }
+
+    .closing p em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-pale), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 28px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border-soft);
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 18px 20px; }
+      .hero { padding: 72px 20px 60px; }
+      section { padding: 60px 0; }
+      .action-card { padding: 36px 24px; }
+      .contact-card { flex-direction: column; }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <div class="glow-layer">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Seven <span>Media</span></div>
+    <div class="nav-contact">amon@sevenmedia.space</div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge reveal"><span class="badge-dot"></span>You're officially in</div>
+    <h1 class="reveal d1">Welcome to<br><em>Seven Media.</em></h1>
+    <p class="hero-sub reveal d2">You signed. We start now. Here's everything you need to know about what we're building, when you'll see it, and what we need from you.</p>
+  </div>
+
+  <!-- WHAT WE'RE BUILDING -->
+  <section>
+    <div class="container">
+      <div class="label reveal">What We're Building</div>
+      <h2 class="reveal d1">The full stack.<br><em>Built from scratch.</em></h2>
+      <div class="build-grid">
+        <div class="build-card reveal d1">
+          <div class="build-num">01</div>
+          <h3>Infrastructure</h3>
+          <ul>
+            <li>Domain registered and live</li>
+            <li>Professional email on your domain</li>
+            <li>Landing page — story, proof, sign-up</li>
+          </ul>
+        </div>
+        <div class="build-card reveal d2">
+          <div class="build-num">02</div>
+          <h3>Revenue</h3>
+          <ul>
+            <li>Payment system connected</li>
+            <li>Membership tiers active</li>
+            <li>Once-off contribution option</li>
+            <li>Member onboarding flow</li>
+          </ul>
+        </div>
+        <div class="build-card reveal d3">
+          <div class="build-num">03</div>
+          <h3>Outreach</h3>
+          <ul>
+            <li>Lead gen platform built</li>
+            <li>Corporate outreach templates</li>
+            <li>Warm leads re-engaged</li>
+            <li>Outreach process systematised</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section>
+    <div class="container">
+      <div class="label reveal">The Timeline</div>
+      <h2 class="reveal d1">30 days.<br><em>4 clear milestones.</em></h2>
+      <div class="timeline">
+        <div class="timeline-row reveal">
+          <div class="timeline-week">Week 1</div>
+          <div class="timeline-content"><strong>Foundation.</strong> Domain registered. Professional email live. Landing page drafted and sent for your review.</div>
+        </div>
+        <div class="timeline-row reveal">
+          <div class="timeline-week">Week 2</div>
+          <div class="timeline-content"><strong>Revenue live.</strong> Landing page published. Payment system connected. Membership tiers active and accepting sign-ups.</div>
+        </div>
+        <div class="timeline-row reveal">
+          <div class="timeline-week">Week 3</div>
+          <div class="timeline-content"><strong>Outreach ready.</strong> Lead gen platform built. Corporate outreach templates written. Warm leads re-engaged with a proper pitch.</div>
+        </div>
+        <div class="timeline-row reveal">
+          <div class="timeline-week">Week 4</div>
+          <div class="timeline-content"><strong>Review and scale.</strong> Everything reviewed and refined. First full outreach round executed. Adjustments made based on early results.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTION -->
+  <section>
+    <div class="container">
+      <div class="action-card reveal">
+        <h2>1 thing.<br><em>Right now.</em></h2>
+        <p>Complete the onboarding form. It takes 10 minutes and gives us everything we need to start building today. Nothing moves until this is done.</p>
+        <a class="btn-gold" href="https://www.sevenmedia.space/onboarding.html">Complete Onboarding Form</a>
+        <p class="action-note">Your answers go directly to Amon. We'll be in touch within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section>
+    <div class="container">
+      <div class="label reveal">How We Work</div>
+      <h2 class="reveal d1">Fast, direct,<br><em>no guesswork.</em></h2>
+      <div class="prose">
+        <p class="reveal d2">Primary communication is iMessage. When we need a decision from you, you'll hear from us the same day. We expect the same in return. Delays on your side become delays on your build.</p>
+        <p class="reveal d2">Every deliverable gets your review before it goes live. You see it, you approve it, it goes up. If something isn't right, we fix it before it touches the public.</p>
+        <p class="reveal d3"><strong>The build is fully managed from our side.</strong> You focus on the movement. We handle the infrastructure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section>
+    <div class="container">
+      <div class="label reveal">Your Point of Contact</div>
+      <div class="contact-card reveal d1">
+        <div>
+          <div class="contact-name">Amon Kamiza</div>
+          <div class="contact-role">Founder, Seven Media</div>
+        </div>
+        <a class="contact-email" href="mailto:amon@sevenmedia.space">amon@sevenmedia.space</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <p class="reveal">What you started with Project 001 proves the model works.<br><em>Now we build the system that scales it.</em></p>
+  </div>
+
+  <footer>
+    Seven Media &nbsp;|&nbsp; amon@sevenmedia.space &nbsp;|&nbsp; Confidential
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
