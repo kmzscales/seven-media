@@ -911,7 +911,19 @@
           <li>Before/after documentation access</li>
           <li>Community newsletter</li>
         </ul>
-        <a href="#join" class="tier-btn tb-o">Join as Community Member</a>
+        <form action="https://www.payfast.co.za/eng/process" method="post" style="width:100%;margin-top:auto;">
+          <input type="hidden" name="merchant_id"      value="PAYFAST_MERCHANT_ID">
+          <input type="hidden" name="merchant_key"     value="PAYFAST_MERCHANT_KEY">
+          <input type="hidden" name="return_url"       value="https://tasirra.construction">
+          <input type="hidden" name="cancel_url"       value="https://tasirra.construction">
+          <input type="hidden" name="item_name"        value="TASIRRA Community Member">
+          <input type="hidden" name="amount"           value="50.00">
+          <input type="hidden" name="subscription_type" value="1">
+          <input type="hidden" name="frequency"        value="3">
+          <input type="hidden" name="cycles"           value="0">
+          <input type="hidden" name="recurring_amount" value="50.00">
+          <button type="submit" class="tier-btn tb-o" style="width:100%;cursor:pointer;font-family:'Inter',sans-serif;">Join as Community Member</button>
+        </form>
       </div>
       <div class="tier pop reveal" data-d="2">
         <div class="tier-tag">#IM: Most Popular</div>
@@ -927,7 +939,19 @@
           <li>Direct updates from project team</li>
           <li>Impact certificate per project</li>
         </ul>
-        <a href="#join" class="tier-btn tb-g">Join as Impact Member</a>
+        <form action="https://www.payfast.co.za/eng/process" method="post" style="width:100%;margin-top:auto;">
+          <input type="hidden" name="merchant_id"      value="PAYFAST_MERCHANT_ID">
+          <input type="hidden" name="merchant_key"     value="PAYFAST_MERCHANT_KEY">
+          <input type="hidden" name="return_url"       value="https://tasirra.construction">
+          <input type="hidden" name="cancel_url"       value="https://tasirra.construction">
+          <input type="hidden" name="item_name"        value="TASIRRA Impact Member">
+          <input type="hidden" name="amount"           value="250.00">
+          <input type="hidden" name="subscription_type" value="1">
+          <input type="hidden" name="frequency"        value="3">
+          <input type="hidden" name="cycles"           value="0">
+          <input type="hidden" name="recurring_amount" value="250.00">
+          <button type="submit" class="tier-btn tb-g" style="width:100%;cursor:pointer;font-family:'Inter',sans-serif;">Join as Impact Member</button>
+        </form>
       </div>
       <div class="tier reveal" data-d="3">
         <div class="tier-tag">#NB</div>
@@ -943,7 +967,19 @@
           <li>Name on permanent project plaque</li>
           <li>Invitation to site visits</li>
         </ul>
-        <a href="#join" class="tier-btn tb-o">Join as Nation Builder</a>
+        <form action="https://www.payfast.co.za/eng/process" method="post" style="width:100%;margin-top:auto;">
+          <input type="hidden" name="merchant_id"      value="PAYFAST_MERCHANT_ID">
+          <input type="hidden" name="merchant_key"     value="PAYFAST_MERCHANT_KEY">
+          <input type="hidden" name="return_url"       value="https://tasirra.construction">
+          <input type="hidden" name="cancel_url"       value="https://tasirra.construction">
+          <input type="hidden" name="item_name"        value="TASIRRA Nation Builder">
+          <input type="hidden" name="amount"           value="1000.00">
+          <input type="hidden" name="subscription_type" value="1">
+          <input type="hidden" name="frequency"        value="3">
+          <input type="hidden" name="cycles"           value="0">
+          <input type="hidden" name="recurring_amount" value="1000.00">
+          <button type="submit" class="tier-btn tb-o" style="width:100%;cursor:pointer;font-family:'Inter',sans-serif;">Join as Nation Builder</button>
+        </form>
       </div>
     </div>
     <div class="once-strip reveal">
@@ -951,7 +987,19 @@
         <h4>Once-off Donation</h4>
         <p>Any amount from R50 to R50,000. No commitment required.</p>
       </div>
-      <a href="#join" class="btn-primary">Donate Once</a>
+      <form action="https://www.payfast.co.za/eng/process" method="post" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <input type="hidden" name="merchant_id"  value="PAYFAST_MERCHANT_ID">
+        <input type="hidden" name="merchant_key" value="PAYFAST_MERCHANT_KEY">
+        <input type="hidden" name="return_url"   value="https://tasirra.construction">
+        <input type="hidden" name="cancel_url"   value="https://tasirra.construction">
+        <input type="hidden" name="item_name"    value="TASIRRA Once-off Donation">
+        <div style="display:flex;align-items:center;background:var(--bg3);border:1px solid var(--bd);padding:0 14px;">
+          <span style="color:var(--soft);font-size:14px;font-weight:600;margin-right:6px;">R</span>
+          <input type="number" name="amount" min="50" max="50000" placeholder="Amount" required
+            style="background:transparent;border:none;color:var(--text);font-family:'Inter',sans-serif;font-size:14px;padding:13px 0;width:110px;outline:none;">
+        </div>
+        <button type="submit" class="btn-primary" style="cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;">Donate Now</button>
+      </form>
     </div>
   </div>
 </section>
@@ -1010,9 +1058,9 @@
 <section id="join" class="section-pad">
   <div class="container">
     <div class="join-inner">
-      <span class="label">Register Your Interest</span>
-      <h2 class="reveal">Be first when<br>we go live.</h2>
-      <p class="sub reveal" data-d="1">Payment system launching soon. Register now and we will notify you the moment your membership activates.</p>
+      <span class="label">Join Now</span>
+      <h2 class="reveal">Pay securely.<br>Build South Africa.</h2>
+      <p class="sub reveal" data-d="1">Payments are processed securely via PayFast. Cancel your membership any time. For corporate partnerships, contact us directly.</p>
       <form class="join-form reveal" data-d="2" id="joinForm">
         <div class="frow">
           <input type="text"  name="name"  placeholder="Full name"      required>
@@ -1027,9 +1075,12 @@
           <option value="corp">Corporate Partnership</option>
         </select>
         <input type="tel" name="phone" placeholder="WhatsApp number (optional)">
-        <button type="submit" class="jsub" id="submitBtn">Register: #RestoreSouthAfrica</button>
+        <div id="onceAmountWrap" style="display:none;">
+          <input type="number" name="once_amount" id="onceAmount" min="50" max="50000" placeholder="Donation amount (R50 — R50,000)">
+        </div>
+        <button type="submit" class="jsub" id="submitBtn">Pay &amp; Join #RestoreSouthAfrica</button>
       </form>
-      <p class="fnote">No spam. We only contact you when your membership is ready.</p>
+      <p class="fnote">Secured by PayFast. Cancel any time. Corporate inquiries: <a href="mailto:siphosethu@tasirra.construction" style="color:var(--gold);">siphosethu@tasirra.construction</a></p>
     </div>
   </div>
 </section>
@@ -1060,11 +1111,61 @@
   }, { threshold: 0.07 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+  // Show/hide amount field for once-off
+  document.querySelector('[name="tier"]').addEventListener('change', function() {
+    document.getElementById('onceAmountWrap').style.display = this.value === 'once' ? 'block' : 'none';
+    document.getElementById('onceAmount').required = this.value === 'once';
+  });
+
   document.getElementById('joinForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    btn.textContent = 'Registered. We will be in touch.';
-    btn.disabled = true;
+    const data = new FormData(this);
+    const tier  = data.get('tier');
+    const name  = data.get('name').trim();
+    const email = data.get('email').trim();
+    const parts = name.split(' ');
+
+    // Corporate — open email
+    if (tier === 'corp') {
+      window.location.href = 'mailto:siphosethu@tasirra.construction?subject=Corporate%20Partnership%20Inquiry';
+      return;
+    }
+
+    const tiers = {
+      cm:   { item: 'TASIRRA Community Member', amount: '50.00',   sub: true  },
+      im:   { item: 'TASIRRA Impact Member',    amount: '250.00',  sub: true  },
+      nb:   { item: 'TASIRRA Nation Builder',   amount: '1000.00', sub: true  },
+      once: { item: 'TASIRRA Once-off Donation',amount: (parseFloat(data.get('once_amount'))||50).toFixed(2), sub: false }
+    };
+    const t = tiers[tier];
+
+    const form = document.createElement('form');
+    form.method = 'post';
+    form.action = 'https://www.payfast.co.za/eng/process';
+    const fields = {
+      merchant_id:  'PAYFAST_MERCHANT_ID',
+      merchant_key: 'PAYFAST_MERCHANT_KEY',
+      return_url:   'https://tasirra.construction',
+      cancel_url:   'https://tasirra.construction',
+      name_first:   parts[0] || '',
+      name_last:    parts.slice(1).join(' ') || '',
+      email_address: email,
+      item_name:    t.item,
+      amount:       t.amount
+    };
+    if (t.sub) {
+      fields.subscription_type  = '1';
+      fields.frequency          = '3';
+      fields.cycles             = '0';
+      fields.recurring_amount   = t.amount;
+    }
+    Object.entries(fields).forEach(([k, v]) => {
+      const i = document.createElement('input');
+      i.type = 'hidden'; i.name = k; i.value = v;
+      form.appendChild(i);
+    });
+    document.body.appendChild(form);
+    form.submit();
   });
 </script>
 </body>
