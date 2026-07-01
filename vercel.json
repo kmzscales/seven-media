@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "tasirra.com" }],
+      "destination": "/tasirra_landing.html"
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.tasirra.com" }],
+      "destination": "/tasirra_landing.html"
+    }
+  ]
+}
