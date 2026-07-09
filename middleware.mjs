@@ -11,9 +11,5 @@ export default function middleware(request) {
     return rewrite(new URL('/copy.html', request.url));
   }
 
-  if (host === 'tasirra.com' || host === 'www.tasirra.com') {
-    return rewrite(new URL('/tasirra_landing.html', request.url));
-  }
-
   return next();
 }
