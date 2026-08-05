@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A note for Mountain Air Marketing | Seven Media</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root {
+    --paper: #F3F4F1;
+    --ink: #1A211D;
+    --slate: #5B655F;
+    --pine: #2E5142;
+    --pine-soft: #E4EBE6;
+    --alpenglow: #C8623F;
+    --rule: #D8DBD4;
+    --shadow: 0 1px 2px rgba(26,33,29,0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #14181A;
+      --ink: #E7EAE5;
+      --slate: #93A099;
+      --pine: #7FB899;
+      --pine-soft: #1E2B24;
+      --alpenglow: #E08B65;
+      --rule: #2A312C;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  body {
+    font-family: 'Avenir Next', 'Century Gothic', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 5rem;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  h1 {
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0.9rem 0 0;
+    color: var(--ink);
+  }
+
+  h1 .soft {
+    color: var(--slate);
+  }
+
+  .stats {
+    display: flex;
+    gap: 0;
+    margin-top: 2.4rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .stat {
+    flex: 1;
+    padding: 0.9rem 1rem 0.9rem 0;
+    border-left: 1px solid var(--rule);
+  }
+  .stat:first-child { border-left: none; padding-left: 0; }
+
+  .stat .num {
+    display: block;
+    font-family: 'Iowan Old Style', Georgia, serif;
+    font-size: 1.35rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--pine);
+  }
+  .stat .label {
+    display: block;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-top: 0.15rem;
+  }
+
+  .ridge {
+    display: block;
+    width: 100%;
+    height: 34px;
+    margin: 2.6rem 0 0.5rem;
+    opacity: 0.55;
+  }
+  .ridge path {
+    fill: none;
+    stroke: var(--pine);
+    stroke-width: 1.25;
+  }
+
+  section.block {
+    padding: 2.2rem 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  section.block .eyebrow {
+    margin-bottom: 0.8rem;
+  }
+
+  section.block p {
+    margin: 0 0 0.9rem;
+    font-size: 1rem;
+    max-width: 60ch;
+  }
+  section.block p:last-child { margin-bottom: 0; }
+
+  .lede {
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: 1.18rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  ul.fixes {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  ul.fixes li {
+    position: relative;
+    padding-left: 1.15rem;
+    font-size: 1rem;
+  }
+  ul.fixes li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    background: var(--alpenglow);
+  }
+
+  .cta {
+    background: var(--pine-soft);
+    padding: 2rem 1.75rem;
+    margin-top: 0.5rem;
+  }
+  .cta .eyebrow { color: var(--pine); }
+  .cta p.lede {
+    margin: 0.7rem 0 1.4rem;
+  }
+  .cta a.button {
+    display: inline-block;
+    background: var(--pine);
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 0.85rem 1.6rem;
+    box-shadow: var(--shadow);
+  }
+  .cta a.button:focus-visible {
+    outline: 2px solid var(--alpenglow);
+    outline-offset: 3px;
+  }
+  .cta a.button:hover {
+    opacity: 0.92;
+  }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem;
+    color: var(--slate);
+  }
+  footer .sign {
+    font-family: 'Iowan Old Style', Georgia, serif;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .page {
+      animation: rise 0.5s ease both;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <p class="eyebrow">A note for Mountain Air Marketing</p>
+    <h1>You build lead systems for a living.<br><span class="soft">Yours doesn't have one.</span></h1>
+
+    <div class="stats">
+      <div class="stat"><span class="num">10</span><span class="label">Person team</span></div>
+      <div class="stat"><span class="num">215+</span><span class="label">Five-star reviews</span></div>
+      <div class="stat"><span class="num">9</span><span class="label">Years running</span></div>
+    </div>
+
+    <svg class="ridge" viewBox="0 0 640 48" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,38 L70,14 L120,30 L190,6 L260,26 L330,16 L400,34 L470,10 L540,28 L610,17 L640,24" />
+    </svg>
+
+    <section class="block">
+      <p class="eyebrow">What I noticed</p>
+      <p class="lede">215+ five-star reviews and almost a decade in business, but if someone lands on mountainairmarketing.com and isn't ready to book a call that day, there's nowhere for them to go. They just leave, for good.</p>
+    </section>
+
+    <section class="block">
+      <p class="eyebrow">What I'd build</p>
+      <ul class="fixes">
+        <li>A lead capture tied to something real, not just "book a call"</li>
+        <li>A follow-up sequence for anyone who opts in but doesn't book</li>
+        <li>One clear path to "Schedule a Call" instead of eight competing buttons</li>
+      </ul>
+      <p>The result: a system that catches a lead automatically. The same thing your team builds for clients, just pointed at your own site.</p>
+    </section>
+
+    <div class="cta">
+      <p class="eyebrow">Next step</p>
+      <p class="lede">15 minutes tells you if it's worth it.</p>
+      <a class="button" href="https://calendly.com/amon-sevenmedia/30min">Schedule a call</a>
+    </div>
+
+    <footer>
+      <p class="sign">Amon</p>
+      <p>Seven Media &nbsp;&nbsp;sevenmedia.space</p>
+    </footer>
+  </div>
+</body>
+</html>
