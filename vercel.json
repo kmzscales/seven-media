@@ -1,1 +1,8 @@
-{}
+{
+  "rewrites": [
+    {
+      "source": "/c/caiiro",
+      "destination": "/onboarding.html?name=Caiiro&company=DRAFTMETRIC&instagram=%40caiiro_____&badge=DRAFTMETRIC"
+    }
+  ]
+}
