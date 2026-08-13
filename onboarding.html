@@ -407,14 +407,31 @@
     Seven Media &nbsp;|&nbsp; amon@sevenmedia.space &nbsp;|&nbsp; Confidential
   </footer>
 
+  <script id="client-registry" type="application/json">
+  {"caiiro": {"name": "Caiiro", "company": "DRAFTMETRIC", "instagram": "@caiiro_____", "domain": "", "badge": "DRAFTMETRIC"}}
+  </script>
+
   <script>
     (function () {
+      // Short links (/c/<slug>) are Vercel *rewrites*, not redirects — the browser's
+      // address bar stays at /c/<slug> and never sees the destination's query string,
+      // so window.location.search is empty there. Look up the slug from the path
+      // against the embedded registry first, and only fall back to query params for
+      // the old-style long-form onboarding.html?name=...&company=... links.
+      var registry = {};
+      try {
+        registry = JSON.parse(document.getElementById('client-registry').textContent);
+      } catch (e) {}
+
+      var slugMatch = window.location.pathname.match(/^\/c\/([^\/]+)\/?$/);
+      var fromRegistry = slugMatch ? registry[slugMatch[1]] : null;
+
       var params = new URLSearchParams(window.location.search);
-      var name       = (params.get('name') || '').trim();
-      var company    = (params.get('company') || '').trim();
-      var instagram  = (params.get('instagram') || '').trim();
-      var domain     = (params.get('domain') || '').trim();
-      var badge      = (params.get('badge') || company).trim();
+      var name       = ((fromRegistry && fromRegistry.name) || params.get('name') || '').trim();
+      var company    = ((fromRegistry && fromRegistry.company) || params.get('company') || '').trim();
+      var instagram  = ((fromRegistry && fromRegistry.instagram) || params.get('instagram') || '').trim();
+      var domain     = ((fromRegistry && fromRegistry.domain) || params.get('domain') || '').trim();
+      var badge      = ((fromRegistry && fromRegistry.badge) || params.get('badge') || company).trim();
       var firstName  = name ? name.split(' ')[0] : '';
 
       if (badge) {
