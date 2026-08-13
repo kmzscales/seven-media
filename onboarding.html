@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Client Onboarding — Seven Media</title>
+  <title>Client Onboarding | Seven Media</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -298,7 +298,7 @@
   <div class="form-wrap">
     <form method="POST" action="https://kmzscales--seven-media-onboarding-fastapi-app.modal.run/submit">
 
-      <div class="section-label">01 — Basic Info</div>
+      <div class="section-label">01. Basic Info</div>
 
       <div class="field">
         <label class="field-label">Full Name</label>
@@ -320,7 +320,7 @@
         <input type="text" name="preferred_email" placeholder="e.g. name@yourdomain.com" />
       </div>
 
-      <div class="section-label">02 — Brand and Accounts</div>
+      <div class="section-label">02. Brand and Accounts</div>
 
       <div class="field">
         <label class="field-label">Domain <span class="hint">Confirm what you want or suggest an alternative</span></label>
@@ -342,7 +342,7 @@
         <input type="text" name="brand_colours" placeholder="e.g. Black, white, gold" />
       </div>
 
-      <div class="section-label">03 — Your Project</div>
+      <div class="section-label">03. Your Project</div>
 
       <div class="field">
         <label class="field-label">What is your core offer and who is it for?</label>
@@ -350,7 +350,7 @@
       </div>
 
       <div class="field">
-        <label class="field-label">What does your current setup look like? <span class="hint">Domain, email, website, payment system — what exists?</span></label>
+        <label class="field-label">What does your current setup look like? <span class="hint">Domain, email, website, payment system: what exists?</span></label>
         <textarea name="current_setup" placeholder="Nothing set up yet is fine. That's why you're here." rows="3"></textarea>
       </div>
 
@@ -359,7 +359,7 @@
         <textarea name="existing_pipeline" placeholder="List any companies or people you've already contacted and whether they responded." rows="3"></textarea>
       </div>
 
-      <div class="section-label">04 — Platform Access</div>
+      <div class="section-label">04. Platform Access</div>
 
       <div class="field">
         <label class="field-label">Have you added Seven Media as admin on your social accounts?</label>
@@ -371,11 +371,11 @@
       </div>
 
       <div class="field">
-        <label class="field-label">Any other platforms or logins to share? <span class="hint">List platforms only — we'll request credentials securely</span></label>
+        <label class="field-label">Any other platforms or logins to share? <span class="hint">List platforms only. We'll request credentials securely</span></label>
         <textarea name="other_platforms" placeholder="e.g. payment gateway, hosting account..." rows="3"></textarea>
       </div>
 
-      <div class="section-label">05 — Goals and Expectations</div>
+      <div class="section-label">05. Goals and Expectations</div>
 
       <div class="field">
         <label class="field-label">What does success look like for you in 90 days?</label>
@@ -449,8 +449,8 @@
 
       if (company) {
         document.getElementById('hero-sub').textContent =
-          'Everything below is for ' + company + '. Fill it out completely — the more detail you give, the faster we move. Takes about 10 minutes.';
-        document.title = company + ' Onboarding — Seven Media';
+          'Everything below is for ' + company + '. Fill it out completely. The more detail you give, the faster we move. Takes about 10 minutes.';
+        document.title = company + ' Onboarding | Seven Media';
       }
 
       if (name)      document.getElementById('full_name').value = name;
